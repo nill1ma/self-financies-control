@@ -14,7 +14,7 @@ export class User {
     this.email = props.email;
   }
 
-  static create({ username, password, email, created_at, updated_at }: User) {
+  static create({ username, password, email}: User) {
     const { properties, valid } = this.validate(username, password, email);
     if (valid)
       return Error(

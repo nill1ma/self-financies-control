@@ -1,7 +1,7 @@
 import { EmailOrUsernameAlreadyExist } from "../entities/errors/email-or-username-already-exist";
 import { User } from "../entities/user";
-import { CreateUserDTO } from "../usecases/users/create-user/create-user-dto";
-import { UpdateUserDTO } from "../usecases/users/update-user/update-user-dto";
+import { CreateUserDTO } from "../usecases/users/create-user/create-user.dto";
+import { UpdateUserDTO } from "../usecases/users/update-user/update-user.dto";
 
 export interface UsersRepository {
   findAll(): Promise<User[]>;

@@ -1,6 +1,6 @@
 import { EmailOrUsernameAlreadyExist } from "../../../entities/errors/email-or-username-already-exist";
 import { UsersRepository } from "../../../repositories/users-repository";
-import { CreateUserDTO } from "./create-user-dto";
+import { CreateUserDTO } from "./create-user.dto";
 
 export class CreateUserService {
   constructor(private repository: UsersRepository) {}

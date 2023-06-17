@@ -1,7 +1,7 @@
 import { UserNotFound } from "../../../entities/errors/user-not-found";
 import { User } from "../../../entities/user";
 import { UsersRepository } from "../../../repositories/users-repository";
-import { UpdateUserDTO } from "./update-user-dto";
+import { UpdateUserDTO } from "./update-user.dto";
 
 export class UpdateUserService {
   constructor(private repository: UsersRepository) {}
