@@ -15,7 +15,9 @@ describe("Find All Users", () => {
     createService = new CreateUserService(repository);
   });
   it("Should Return UserNotFound", async () => {
-    await expect(service.findByEmailOrUsername('','jhondoe@gmail.com')).rejects.toEqual(new UserNotFound())
+    expect(
+      await service.findByEmailOrUsername("", "jhondoe@gmail.com")
+    ).toEqual(new UserNotFound());
   });
 
   it("Should Return an User when find by email", async () => {
@@ -24,12 +26,12 @@ describe("Find All Users", () => {
       password: "12345",
       email: "jhondoe@gmail.com",
     });
-    const users = await service.findByEmailOrUsername('jhondoe@gmail.com','');
+    const users = await service.findByEmailOrUsername("jhondoe@gmail.com", "");
     expect(users).toHaveProperty("id");
   });
 
   it("Should Return an User when find by username", async () => {
-    const user = await service.findByEmailOrUsername('', 'Jhon doe');
+    const user = await service.findByEmailOrUsername("", "Jhon doe");
     expect(user).toHaveProperty("id");
   });
 });

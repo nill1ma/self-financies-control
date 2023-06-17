@@ -9,7 +9,7 @@ export class FindUserByEmailOrUsernameService {
     username?: string
   ): Promise<User | UserNotFound> {
     const user = await this.repository.findByEmailOrUsername(email, username);
-    if (!user) throw new UserNotFound();
+    if (!user) return new UserNotFound();
     return user;
   }
 }

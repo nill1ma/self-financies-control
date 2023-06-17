@@ -1,9 +1,23 @@
 import { User } from "../../entities/user";
 import { CreateUserDTO } from "../../usecases/users/create-user/create-user-dto";
+import { UpdateUserDTO } from "../../usecases/users/update-user/update-user-dto";
 import { UsersRepository } from "../users-repository";
 
 export class UsersRepositoryInMemory implements UsersRepository {
   private users: User[] = [];
+
+  async update(userRequest: UpdateUserDTO): Promise<User> {
+    const { id, username, password, email } = userRequest;
+    this.users = this.users.map((user) => {
+      if (user.id === id) {
+        user.username = username;
+        user.password = password;
+        user.email = email;
+      }
+      return user;
+    });
+    return this.users.find((u) => u.id === id)!;
+  }
 
   async findById(userId: number): Promise<User | null> {
     const user = this.users.find((user) => user.id === userId);
