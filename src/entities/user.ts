@@ -1,4 +1,3 @@
-import { randomUUID } from "node:crypto";
 
 export class User {
   id?: number;

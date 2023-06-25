@@ -13,6 +13,7 @@ const dbConfig: { [key: string]: Knex.Config } = {
       directory: `${__dirname}/src/database/migrations`,
       disableMigrationsListValidation: true
     },
+    useNullAsDefault: true
   },
 
   // staging: {
