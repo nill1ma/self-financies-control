@@ -1,5 +1,5 @@
 import { ExpensesRepository } from "../../../repositories/expenses-repository";
-import { ExpensesRepositoryInMemory } from "../../../repositories/users-repository-in-memory.ts/expenses-repository-in-memory";
+import { ExpensesRepositoryInMemory } from "../../../repositories/repository-in-memory/expenses-repository-in-memory";
 import { CreateExpenseService } from "./create-expense.service";
 
 describe("Create expense", () => {

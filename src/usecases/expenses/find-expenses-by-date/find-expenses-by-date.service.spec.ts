@@ -1,25 +1,25 @@
 import { ExpensesRepository } from "../../../repositories/expenses-repository";
 import { ExpensesRepositoryInMemory } from "../../../repositories/repository-in-memory/expenses-repository-in-memory";
 import { CreateExpenseService } from "../create-expense/create-expense.service";
-import { FindExpensesService } from "./find-expenses.service";
+import { FindExpensesByDateService } from "./find-expenses-by-date.service";
 
-describe("Find All Expenses", () => {
+describe("Find Expense By Date", () => {
   let repository: ExpensesRepository;
-  let service: FindExpensesService;
+  let service: FindExpensesByDateService;
   let createService: CreateExpenseService;
 
   beforeAll(() => {
     repository = new ExpensesRepositoryInMemory();
-    service = new FindExpensesService(repository);
+    service = new FindExpensesByDateService(repository);
     createService = new CreateExpenseService(repository);
   });
   it("Should Return a empty list", async () => {
-    const users = await service.findAll();
-    expect(users).toHaveLength(0);
-    expect(users).toEqual([]);
+    const expenses = await service.findByDate(new Date());
+    expect(expenses).toHaveLength(0);
+    expect(expenses).toEqual([]);
   });
 
-  it("Should Return a list of Expenses with 1 expense", async () => {
+  it("Should Return a list of Users with 1 user", async () => {
     await createService.create({
       destination: "Jiu Jitsu Canada",
       payment_value: 100,
@@ -27,7 +27,7 @@ describe("Find All Expenses", () => {
       pay_day: new Date(),
       user_id: 1,
     });
-    const expenses = await service.findAll();
+    const expenses = await service.findByDate(new Date("2023-07-17"));
     expect(expenses).toHaveLength(1);
     expect(expenses[0]).toHaveProperty("id");
   });

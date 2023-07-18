@@ -1,9 +1,9 @@
 import { Request, Response, Router } from "express";
-import { createUserFactory } from "../usecases/users/create-user/create-user.factory";
-import { deleteUserFactory } from "../usecases/users/delete-user/delete-user.factory";
-import { findUsersFactory } from "../usecases/users/find-all-users/find-users.factory";
-import { findUserByEmailOrUsernameFactory } from "../usecases/users/find-user-by-username-or-email/find-user-by-email-or-username.factory";
-import { updateUserFactory } from "../usecases/users/update-user/update-user.factory";
+import { createUserFactory } from "../../usecases/users/create-user/create-user.factory";
+import { deleteUserFactory } from "../../usecases/users/delete-user/delete-user.factory";
+import { findUsersFactory } from "../../usecases/users/find-all-users/find-users.factory";
+import { findUserByEmailOrUsernameFactory } from "../../usecases/users/find-user-by-username-or-email/find-user-by-email-or-username.factory";
+import { updateUserFactory } from "../../usecases/users/update-user/update-user.factory";
 
 const userRouter = Router();
 

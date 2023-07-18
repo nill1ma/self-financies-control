@@ -1,4 +1,3 @@
-
 export class User {
   id?: number;
   username: string;
@@ -13,26 +12,12 @@ export class User {
     this.email = props.email;
   }
 
-  static create({ username, password, email}: User) {
-    const { properties, valid } = this.validate(username, password, email);
-    if (valid)
-      return Error(
-        `Invalid inputs in properties ${properties.map((prop) => prop)}`
-      );
+  static create({ username, password, email }: User) {
     const user = new User({
       username,
       password,
       email,
     });
     return user;
-  }
-  static validate(username: string, password: string, email: string) {
-    const properties = this.isEmpty([username, password, email]);
-    return { properties, valid: properties.length > 0 };
-  }
-
-  static isEmpty(properties: string[]) {
-    const props = properties.filter((property) => property.trim() === "");
-    return props;
   }
 }

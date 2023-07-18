@@ -1,6 +1,6 @@
 import { EmailOrUsernameAlreadyExist } from "../../../entities/errors/email-or-username-already-exist";
+import { UsersRepositoryInMemory } from "../../../repositories/repository-in-memory/users-repository-in-memory";
 import { UsersRepository } from "../../../repositories/users-repository";
-import { UsersRepositoryInMemory } from "../../../repositories/users-repository-in-memory.ts/users-repository-in-memory";
 import { CreateUserService } from "../create-user/create-user.service";
 
 describe("Create User", () => {

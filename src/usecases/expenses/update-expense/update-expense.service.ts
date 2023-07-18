@@ -1,12 +1,13 @@
 import { ExpensesRepository } from "../../../repositories/expenses-repository";
-import { CreateExpenseDTO } from "./create-expense.dto";
+import { UpdateExpenseDTO } from "./update-expense.dto";
 
-export class CreateExpenseService {
+export class UpdateExpenseService {
   constructor(private repository: ExpensesRepository) {}
-  async create(expenseRequest: CreateExpenseDTO) {
-    const { destination, payment_value, due_time, pay_day, user_id } =
+  async update(expenseRequest: UpdateExpenseDTO) {
+    const { id, destination, payment_value, due_time, pay_day, user_id } =
       expenseRequest;
-    const expense = await this.repository.create({
+    const expense = await this.repository.update({
+      id,
       destination,
       payment_value,
       due_time,
